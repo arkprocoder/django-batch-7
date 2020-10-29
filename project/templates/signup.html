@@ -1,0 +1,81 @@
+{% extends 'basic.html' %}
+{% block title %}
+Signup
+{% endblock title %}
+{% block body %}
+{% load socialaccount %}
+
+<div class="container mt-3">
+
+<div class="row">
+
+<div class="col-md-3"></div>
+
+
+<div class="col-md-6">
+<h3 class="bg-light text-success text-center">Sign Up</h3>
+
+<div class="jumbotron">
+ <a  class="btn btn-sm btn-block btn-dark mt-0"  href="{% provider_login_url 'google' %}">Signup With <img src="https://img.icons8.com/color/30/000000/google-logo.png"/></a>
+
+                          <p class="text-center mt-1">OR</p>
+<form action="/signup" method="post">{% csrf_token %}
+
+<div class="form-group">
+
+<label for="username">UserName</label>
+<input type="text" class="form-control" name="username" id="username" placeholder="Username Must Be AlphaNumeric" required>
+</div>
+
+<div class="form-group">
+
+<label for="fname">First Name</label>
+<input type="text" class="form-control" name="fname" id="fname" required>
+
+</div>
+<div class="form-group">
+
+<label for="lname">Last Name</label>
+<input type="text" class="form-control" name="lname" id="lname" required>
+
+</div>
+<div class="form-group">
+
+<label for="email">Email Address</label>
+<input type="email" class="form-control" name="email" id="email" required>
+
+</div>
+
+<div class="form-group">
+
+<label for="pass1">Password</label>
+<input type="password" class="form-control" name="pass1" id="pass1" required>
+
+</div>
+<div class="form-group">
+
+<label for="pass2">Confirm Password</label>
+<input type="password" class="form-control" name="pass2" id="pass2" required>
+
+</div>
+
+<button type="submit" class="btn btn-primary btn-sm btn-block">SignUp</button>
+
+</form>
+
+<p class="text-success mt-3">Already  User? 
+<a href="/login">Login</a>
+</p>
+</div>
+
+
+</div>
+
+
+<div class="col-md-3"></div>
+
+</div>
+
+</div>
+
+{% endblock body %}
