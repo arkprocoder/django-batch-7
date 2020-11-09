@@ -1,13 +1,30 @@
 {% extends 'basic.html' %}
 {% block title %}
-Blog
+Search
 {% endblock title %}
 {% block body %}
+<div class="container my-3">
 
-<div class="container mt-4">
-<div class="row row-cols-1 row-cols-md-2">
-{% for post in posts %}
-  <div class="col mb-4">
+<h3>Search Results.....</h3>
+
+{% if allPosts|length < 1  %}
+
+Your Search <b>{{query}} </b> did not match any information
+
+<br>
+Suggestions:
+<ul>
+
+<li>
+Make Sure That All Words Are Spelled Correctly
+</li>
+
+</ul>
+
+{% endif %}
+
+{% for  post in allPosts %}
+ <div class="col mb-4">
     <div class="card">
       <img src="{{post.img.url}}" class="card-img-top" alt="...">
       <div class="card-body">
@@ -18,7 +35,11 @@ Blog
       </div>
     </div>
   </div>
- {% endfor %}
+
+
+{% endfor %}
+
 </div>
-</div>
+
+
 {% endblock body %}
